@@ -24,7 +24,10 @@ export default function Home({ allPostsData }) {
         <p>I am a Software Engineer with having market experience still 2017, working in Afiniti these days as a Full Stack Engineer.</p>
         <p>
           (This is a sample website - you’ll be building a site like this on{" "}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+          <Link href="/next-tutorial">
+            <a>Our Nextjs tutorial</a>
+          </Link>
+          .)
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
