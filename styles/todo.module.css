@@ -1,0 +1,26 @@
+.App {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.App .input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.App .input input {
+  width: 50%;
+}
+.App .input button {
+  margin-left: 10px;
+}
+.App .todosList {
+  padding: 0;
+}
+.App .todosList .listItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
