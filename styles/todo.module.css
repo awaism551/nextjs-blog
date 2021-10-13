@@ -24,3 +24,20 @@
   justify-content: space-between;
   margin-bottom: 8px;
 }
+.without::-webkit-datetime-edit-ampm-field {
+  display: none;
+}
+.without[type=time]::-webkit-clear-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; 
+}
+
+.without[type=number]::-webkit-inner-spin-button,
+.without[type=number]::-webkit-outer-spin-button {
+ -webkit-appearance: none;
+ -moz-appearance: none;
+  appearance: none;
+  margin: 0; 
+ }
