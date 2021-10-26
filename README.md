@@ -17,5 +17,7 @@ should we use useState in components if we are managing state with redux?
 use of redux hooks like useSelector and useDispatch
 use of next-redux-wrapper
 side effects in react?
+learning of getstaticprops, getstaticpaths, getserversideprops and getinitialprops
+ssr in nextjs along with practical implementation
 
 
