@@ -19,5 +19,8 @@ use of next-redux-wrapper
 side effects in react?
 learning of getstaticprops, getstaticpaths, getserversideprops and getinitialprops
 ssr in nextjs along with practical implementation
+styled-components implementation
+update functionality in todo app as well
+backend implementation in nestjs,typeorm,postgres,swagger for these todos
 
 
