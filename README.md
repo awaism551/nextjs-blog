@@ -6,11 +6,11 @@ done
 todo app in nextjs with add and remove functionality
 timepicker from material ui pickers v4
 integration of ts in next app
+using material ui textfields and button in todo elements
 
 
 
 todos
-using material ui textfields and button in todo elements
 integration of react-redux
 learning of state management with redux
 should we use useState in components if we are managing state with redux?

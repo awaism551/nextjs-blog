@@ -1,7 +1,9 @@
 import styles from "../styles/todo.module.css";
 import React, { useEffect, useState } from "react";
-import { Button, ListItem, ListItemText, TextField } from "@material-ui/core";
+import { Button, IconButton, ListItem, ListItemSecondaryAction, ListItemText, TextField } from "@material-ui/core";
 import List from "@material-ui/core/List";
+import DeleteIcon from '@material-ui/icons/Delete';
+
 
 export function Todo(props) {
   let [inputValue, setInputValue] = useState("");
@@ -39,13 +41,11 @@ export function Todo(props) {
       <>
         <ListItem key={todo.id} button>
           <ListItemText primary={todo.desc} />
-          <Button
-              onClick={() => handleDelete(todo.id)}
-              variant="outlined"
-              color="secondary"
-            >
-              X
-            </Button>
+          <ListItemSecondaryAction>
+            <IconButton onClick={() => handleDelete(todo.id)} edge="end" aria-label="delete">
+              <DeleteIcon />
+            </IconButton>
+          </ListItemSecondaryAction>
         </ListItem>
       </>
     );
