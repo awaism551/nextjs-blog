@@ -11,16 +11,17 @@ using material ui textfields and button in todo elements
 
 
 todos
+learning of getstaticprops, getstaticpaths, getserversideprops and getinitialprops
 integration of react-redux
 learning of state management with redux
 should we use useState in components if we are managing state with redux?
 use of redux hooks like useSelector and useDispatch
 use of next-redux-wrapper
 side effects in react?
-learning of getstaticprops, getstaticpaths, getserversideprops and getinitialprops
 ssr in nextjs along with practical implementation
 styled-components implementation
 update functionality in todo app as well
 backend implementation in nestjs,typeorm,postgres,swagger for these todos
+using material table on frontend to render todos with complete crud implementation in this 
 
 

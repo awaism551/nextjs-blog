@@ -1,16 +1,36 @@
-import styles from "../styles/todo.module.css";
-import React, { useEffect, useState } from "react";
-import { Button, IconButton, ListItem, ListItemSecondaryAction, ListItemText, TextField } from "@material-ui/core";
+import {
+  Button,
+  IconButton,
+  ListItem,
+  ListItemSecondaryAction,
+  ListItemText, TextField
+} from "@material-ui/core";
 import List from "@material-ui/core/List";
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from "@material-ui/icons/Delete";
+import React, { useEffect, useState } from "react";
+import styles from "../styles/todo.module.css";
 
+// This function gets called at build time
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts
+  const res = await fetch("http://jsonplaceholder.typicode.com/todos");
+  const todos = await res.json();
+  console.log("getStaticProps");
+  console.log("todos::", todos);
+  // By returning { props: { posts } }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      todos,
+    },
+  };
+}
 
 export function Todo(props) {
   let [inputValue, setInputValue] = useState("");
   let [todos, setTodos] = useState([]);
 
   const handleInputChange = (event) => {
-    // debugger;
     setInputValue(event.target.value);
   };
 
@@ -23,7 +43,7 @@ export function Todo(props) {
       }
       todos.push({
         id,
-        desc: inputValue,
+        title: inputValue,
       });
       setTodos(todos);
       setInputValue("");
@@ -38,21 +58,28 @@ export function Todo(props) {
 
   const todosToRender = todos.map((todo) => {
     return (
-      <>
         <ListItem key={todo.id} button>
-          <ListItemText primary={todo.desc} />
+          <ListItemText primary={todo.title} />
           <ListItemSecondaryAction>
-            <IconButton onClick={() => handleDelete(todo.id)} edge="end" aria-label="delete">
+            <IconButton
+              onClick={() => handleDelete(todo.id)}
+              edge="end"
+              aria-label="delete"
+            >
               <DeleteIcon />
             </IconButton>
           </ListItemSecondaryAction>
         </ListItem>
-      </>
     );
   });
 
   useEffect(() => {
-    console.log("in useeffect");
+    async function getRemoteTodos() {
+      const res = await fetch("http://jsonplaceholder.typicode.com/todos");
+      const todos = await res.json();
+      setTodos(todos);
+    }
+    getRemoteTodos();
   }, []);
 
   return (
@@ -74,7 +101,7 @@ export function Todo(props) {
           </Button>
         </div>
       </form>
-      <div className={styles.todos}>
+      <div>
         <List className={styles.todosList}>{todosToRender}</List>
       </div>
     </div>
