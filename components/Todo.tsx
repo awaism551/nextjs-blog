@@ -1,14 +1,14 @@
+// import MaterialTable from "material-table";
+import MaterialTable from '@material-table/core';
 import {
-  Button,
   IconButton,
   ListItem,
   ListItemSecondaryAction,
-  ListItemText, TextField
+  ListItemText
 } from "@material-ui/core";
-import List from "@material-ui/core/List";
 import DeleteIcon from "@material-ui/icons/Delete";
 import React, { useEffect, useState } from "react";
-import styles from "../styles/todo.module.css";
+
 
 // This function gets called at build time
 export async function getStaticProps() {
@@ -58,18 +58,18 @@ export function Todo(props) {
 
   const todosToRender = todos.map((todo) => {
     return (
-        <ListItem key={todo.id} button>
-          <ListItemText primary={todo.title} />
-          <ListItemSecondaryAction>
-            <IconButton
-              onClick={() => handleDelete(todo.id)}
-              edge="end"
-              aria-label="delete"
-            >
-              <DeleteIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
+      <ListItem key={todo.id} button>
+        <ListItemText primary={todo.title} />
+        <ListItemSecondaryAction>
+          <IconButton
+            onClick={() => handleDelete(todo.id)}
+            edge="end"
+            aria-label="delete"
+          >
+            <DeleteIcon />
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
     );
   });
 
@@ -83,8 +83,8 @@ export function Todo(props) {
   }, []);
 
   return (
-    <div className={styles.App}>
-      <h3>Todo List</h3>
+    <div>
+      {/* <h3>Todo List</h3>
       <br />
       <form onSubmit={addTodo}>
         <div className={styles.input}>
@@ -100,10 +100,28 @@ export function Todo(props) {
             Add
           </Button>
         </div>
-      </form>
-      <div>
-        <List className={styles.todosList}>{todosToRender}</List>
-      </div>
+      </form> */}
+      {/* <List className={styles.todosList}>{todosToRender}</List> */}
+
+      <MaterialTable
+        columns={[
+          { title: "Adı", field: "name" },
+          { title: "Soyadı", field: "surname" },
+          { title: "Doğum Yılı", field: "birthYear", type: "numeric" },
+          {
+            title: "Doğum Yeri",
+            field: "birthCity",
+            lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
+          },
+        ]}
+        data={[
+          { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
+        ]}
+        title="Demo Title"
+        options={{
+          draggable: false
+        }}
+      />
     </div>
   );
 }
